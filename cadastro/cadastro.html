@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Usuários • Criar Usuário</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h2>Admin</h2>
+      <form role="search">
+        <label for="q">Buscar</label>
+        <input id="q" name="q" type="search" placeholder="Buscar" />
+      </form>
+      <nav>
+        <h3>Administração</h3>
+        <details open>
+          <summary>Gerenciamento de Usuário</summary>
+          <ul>
+            <li><a href="#">Usuários</a></li>
+            <li><a href="#">Cargos</a></li>
+          </ul>
+        </details>
+        <h3>Relatórios</h3>
+        <a href="#estatisticas">Estatísticas (gráfico)</a>
+      </nav>
+    </aside>
+
+    <div>
+      <header class="header">
+        <h1>Usuários</h1>
+        <p>Usuário atual: <strong>usuario</strong></p>
+      </header>
+
+      <main class="content">
+        <h2 class="page-title">Criar Usuário</h2>
+
+        <section class="card" aria-labelledby="tituloForm">
+          <h3 id="tituloForm">Dados do Usuário</h3>
+          <form>
+            <div>
+              <label for="cargo">Cargo *</label>
+              <select id="cargo" name="cargo" required>
+                <option value="" selected disabled>Selecione o Cargo</option>
+                <option>Assessor Técnico</option>
+                <option>Usuário</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="nome">Nome *</label>
+              <input id="nome" name="nome" type="text" maxlength="255" required
+                     placeholder="Nome do usuário"
+                     pattern="^[A-Za-zÀ-ÖØ-öø-ÿ ]+$"
+                     title="Use apenas letras e espaços. Máximo de 255 caracteres." />
+            </div>
+
+            <div>
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" placeholder="email@exemplo.com" />
+            </div>
+
+            <div>
+              <label for="siape">SIAPE</label>
+              <input id="siape" name="siape" type="number" inputmode="numeric" placeholder="Somente números" />
+            </div>
+
+            <div>
+              <label for="telefone">Telefone</label>
+              <input id="telefone" name="telefone" type="number" inputmode="numeric" placeholder="DDD + número" />
+            </div>
+
+            <div>
+              <button type="reset">Limpar</button>
+              <button type="submit">Salvar Usuário</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="estatisticas" class="card" aria-labelledby="tituloStats">
+          <h3 id="tituloStats">Estatísticas</h3>
+          <p style="padding:16px 16px 0;margin:0;">Usuários criados por mês (exemplo visual simples):</p>
+          <svg viewBox="0 0 600 220" width="600" height="220" role="img" aria-label="Gráfico de barras">
+            <rect x="0" y="0" width="600" height="220" fill="white" stroke="black" />
+            <line x1="50" y1="180" x2="580" y2="180" stroke="black"/>
+            <line x1="50" y1="30"  x2="50"  y2="180" stroke="black"/>
+            <rect x="80"  y="120" width="40" height="60" fill="#10b981"/>
+            <rect x="150" y="90"  width="40" height="90" fill="#10b981"/>
+            <rect x="220" y="70"  width="40" height="110" fill="#10b981"/>
+            <rect x="290" y="100" width="40" height="80" fill="#10b981"/>
+            <rect x="360" y="60"  width="40" height="120" fill="#10b981"/>
+            <rect x="430" y="140" width="40" height="40" fill="#10b981"/>
+            <text x="90"  y="200" font-size="12">Jan</text>
+            <text x="160" y="200" font-size="12">Fev</text>
+            <text x="230" y="200" font-size="12">Mar</text>
+            <text x="300" y="200" font-size="12">Abr</text>
+            <text x="370" y="200" font-size="12">Mai</text>
+            <text x="440" y="200" font-size="12">Jun</text>
+          </svg>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
