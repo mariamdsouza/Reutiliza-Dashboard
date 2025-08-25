@@ -1,119 +1,168 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:#f3f4f6;
-  color:#111827;
+  font-family: Arial, sans-serif;
+  background: #f4f5f7;
+  color: #333;
 }
 
-.app {
-  display:grid;
-  grid-template-columns:240px 1fr;
-  min-height:100vh;
-}
-
+/* Sidebar */
 .sidebar {
-  background:#0f172a;
-  color:#cbd5e1;
-  padding:16px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px; 
+  height: 100%;
+  background: #0d1726;
+  transition: width 0.3s;
+  overflow-x: hidden;
+}
+.sidebar.collapsed {
+  width: 70px;
 }
 
-.sidebar h2 {
-  color:white;
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #0d1726;
+}
+.sidebar-header .toggle-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.sidebar-header .logo {
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  transition: opacity 0.3s;
+}
+.sidebar.collapsed .logo {
+  opacity: 0;
+  pointer-events: none;
 }
 
-.sidebar nav h3 {
-  margin-top:20px;
-  font-size:13px;
-  color:#94a3b8;
-  text-transform:uppercase;
+.sidebar-menu {
+  list-style: none;
+  padding: 10px 0;
+}
+.sidebar-menu li {
+  position: relative;
+}
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.sidebar-menu a:hover {
+  background: #1a2535;
+}
+.sidebar-menu i {
+  font-size: 18px;
+  margin-right: 12px;
+}
+.sidebar.collapsed .sidebar-menu span {
+  display: none;
 }
 
-.sidebar a {
-  display:block;
-  padding:8px;
-  color:#e5e7eb;
-  text-decoration:none;
-  border-radius:6px;
+/* Barra de busca */
+#search-input {
+  display: none;
+  width: 90%;
+  margin: 5px auto;
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-.sidebar a:hover {
-  background:#1f2937;
+/* Submenus */
+.submenu {
+  display: none;
+  list-style: none;
+  padding-left: 20px;
+}
+.menu-section.open .submenu {
+  display: block;
 }
 
-.header {
-  background:#111827;
-  color:#e5e7eb;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:12px 20px;
+/* Main content */
+.main {
+  margin-left: 280px; 
+  transition: margin-left 0.3s;
+  padding: 20px;
+}
+.main.collapsed {
+  margin-left: 70px; 
 }
 
+.topbar {
+  background: #0d1320;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topbar h1 {
+  font-size: 24px;
+}
+.user-info {
+  font-size: 14px;
+}
+
+/* Formulário */
 .content {
-  padding:20px;
+  margin-top: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
 }
-
-.page-title {
-  font-size:22px;
-  margin:0 0 20px;
-  font-weight:bold;
+form fieldset {
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 8px;
 }
-
-.card {
-  background:white;
-  border-radius:10px;
-  box-shadow:0 1px 4px rgba(0,0,0,0.1);
-  margin-bottom:20px;
+form legend {
+  font-weight: bold;
+  margin-bottom: 10px;
 }
-
-.card h3 {
-  margin:0;
-  padding:12px 16px;
-  background:#f8fafc;
-  border-bottom:1px solid #e5e7eb;
-  font-size:16px;
+form label {
+  display: block;
+  margin: 10px 0 5px;
 }
-
-form {
-  padding:16px;
+form input,
+form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
-
-form div {
-  margin-bottom:12px;
+.form-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
 }
-
-label {
-  font-weight:bold;
-  display:block;
-  margin-bottom:4px;
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
-
-input, select {
-  width:100%;
-  padding:10px;
-  border:1px solid #d1d5db;
-  border-radius:8px;
+.btn.primary {
+  background: #00c06f;
+  color: #fff;
 }
-
-button {
-  padding:10px 16px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-button[type=reset] {
-  background:#f9fafb;
-  border:1px solid #d1d5db;
-}
-
-button[type=submit] {
-  background:#10b981;
-  color:white;
-}
-
-svg {
-  max-width:100%;
-  height:auto;
+.btn.secondary {
+  background: #e0e0e0;
 }
