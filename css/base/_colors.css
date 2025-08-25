@@ -1,0 +1,11 @@
+:root {
+    --primary-color: #3f51b5;
+    --sidebar-bg: #2d3e50;
+    --sidebar-text: #ecf0f1;
+    --content-bg: #f4f5f7;
+    --top-bar-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --text-color-dark: #333;
+    --text-color-medium: #666;
+    --text-color-light: #999;
+}

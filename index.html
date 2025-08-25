@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reutiliza+ Manager</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <img
+            src="./assets/img/logo-icon.png"
+            alt="Reutiliza+ Logo"
+            class="sidebar-logo"
+          />
+          <h2>Reutiliza+ Manager</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <h3>Geral</h3>
+            <ul>
+              <li>
+                <a href="#" class="active"
+                  ><i class="material-icons">home</i> <span>Home</span></a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="material-icons">person_add</i>
+                  <span>Cadastrar Assessor</span></a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="material-icons">dashboard</i>
+                  <span>Dashboard</span></a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="material-icons">account_circle</i>
+                  <span>Perfil</span></a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="material-icons">settings</i>
+                  <span>Configurações</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="main-content" id="main-content">
+        <header class="top-bar">
+          <div class="top-bar-left">
+            <div class="menu-toggle" id="menu-toggle">
+              <i class="material-icons">menu</i>
+            </div>
+            <div class="search-toggle" id="search-toggle">
+              <i class="material-icons">search</i>
+            </div>
+            <div class="search-box">
+              <input type="text" placeholder="Buscar..." />
+            </div>
+          </div>
+          <div class="user-profile">
+            <span class="user-welcome">Bem-vindo, Gerente da Silva</span>
+            <div class="user-icon">
+              <img
+                id="user-avatar"
+                src="./assets/img/user-profile.png"
+                alt="Foto do Usuário"
+              />
+            </div>
+          </div>
+        </header>
+
+        <section class="content-area">
+          <h1>Home</h1>
+          <p>Aqui você pode ver uma visão geral do seu painel.</p>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/_main.js"></script>
+  </body>
+</html>
