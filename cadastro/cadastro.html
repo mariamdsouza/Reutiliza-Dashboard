@@ -1,130 +1,134 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - Usuários</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reutiliza+ Manager — Criar Usuário</title>
+  <!-- CSS está na RAIZ -->
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 </head>
 <body>
-  <div class="sidebar">
-    <div class="sidebar-header">
-      <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-      <span class="logo">Admin</span>
-    </div>
-    <ul class="sidebar-menu">
-      <li>
-        <a href="#" id="search-btn">
-          <i class="bi bi-search"></i>
-          <span>Buscar</span>
-        </a>
-        <input type="text" id="search-input" placeholder="Digite para buscar...">
-      </li>
+  <div class="dashboard-container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <!-- imagens ficam em assets/img -->
+        <img src="../assets/img/logo-icon.png" alt="Reutiliza+ Logo" class="sidebar-logo"/>
+        <h2>Reutiliza+ Manager</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <h3>GERAL</h3>
+          <ul>
+            <li>
+              <a href="../index.html">
+                <i class="material-icons">home</i><span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="active">
+                <i class="material-icons">person_add</i><span>Cadastrar Assessor</span>
+              </a>
+            </li>
+            <li><a href="#"><i class="material-icons">dashboard</i><span>Dashboard</span></a></li>
+            <li><a href="#"><i class="material-icons">account_circle</i><span>Perfil</span></a></li>
+            <li><a href="#"><i class="material-icons">settings</i><span>Configurações</span></a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
 
-      <li class="menu-section">
-        <a href="#" class="dropdown-btn">
-          <i class="bi bi-gear"></i>
-          <span>Administração</span>
-        </a>
-        <ul class="submenu">
-          <li><a href="#"><i class="bi bi-people"></i><span>Usuários</span></a></li>
-          <li><a href="#"><i class="bi bi-person-badge"></i><span>Cargos</span></a></li>
-        </ul>
-      </li>
-
-      <li class="menu-section">
-        <a href="#" class="dropdown-btn">
-          <i class="bi bi-bar-chart"></i>
-          <span>Relatórios</span>
-        </a>
-        <ul class="submenu">
-          <li><a href="#"><i class="bi bi-graph-up"></i><span>Estatísticas</span></a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-  <div class="main">
-    <div class="topbar">
-      <h1>Usuários</h1>
-      <div class="user-info">Usuário atual: <strong>usuario</strong></div>
-    </div>
-
-    <div class="content">
-      <h2>Criar Usuário</h2>
-      <form class="form">
-        <fieldset>
-          <legend>Dados do Usuário</legend>
-
-          <label for="cargo">Cargo *</label>
-          <select id="cargo">
-            <option value="">Selecione o Cargo</option>
-            <option value="admin">Administrador</option>
-            <option value="user">Usuário</option>
-            <option value="manager">Gerente</option>
-          </select>
-
-          <label for="nome">Nome *</label>
-          <input type="text" id="nome" placeholder="Nome do usuário">
-
-          <label for="email">E-mail</label>
-          <input type="email" id="email" placeholder="email@exemplo.com">
-
-          <label for="siape">SIAPE</label>
-          <input type="text" id="siape" placeholder="Somente números" oninput="this.value=this.value.replace(/\D/g,'')">
-
-          <label for="telefone">Telefone</label>
-          <input type="text" id="telefone" placeholder="DDD + número" oninput="this.value=this.value.replace(/\D/g,'')">
-
-
-          <div class="form-actions">
-            <button type="reset" class="btn secondary">Limpar</button>
-            <button type="submit" class="btn primary">Salvar Usuário</button>
+    <!-- MAIN -->
+    <main class="main-content" id="main-content">
+      <header class="top-bar">
+        <div class="top-bar-left">
+          <button class="icon-btn" id="menu-toggle" aria-label="Menu">
+            <i class="material-icons">menu</i>
+          </button>
+          <button class="icon-btn" id="search-toggle" aria-label="Buscar">
+            <i class="material-icons">search</i>
+          </button>
+          <div class="search-box" id="search-box">
+            <input type="text" placeholder="Buscar..." />
           </div>
-        </fieldset>
-      </form>
-    </div>
+        </div>
+        <div class="user-profile">
+          <span class="user-welcome">Bem-vindo, <strong>Gerente da Silva</strong></span>
+          <div class="user-icon">
+            <img src="../assets/img/user-profile.png" alt="Foto do Usuário"/>
+          </div>
+        </div>
+      </header>
+
+      <section class="content-area">
+        <h1 class="page-title">Criar Usuário</h1>
+
+        <form class="card form" autocomplete="off">
+          <fieldset>
+            <legend>Dados do Usuário</legend>
+
+              <!-- Cargo -->
+              <div class="form-group">
+                <label for="cargo">Cargo <span class="req">*</span></label>
+                <select id="cargo" required>
+                  <option value="">Selecione o Cargo</option>
+                  <option value="admin">Administrador</option>
+                  <option value="manager">Gerente</option>
+                  <option value="user">Usuário</option>
+                </select>
+              </div>
+
+              <!-- Nome -->
+              <div class="form-group">
+                <label for="nome">Nome <span class="req">*</span></label>
+                <input type="text" id="nome" placeholder="Nome do usuário" required>
+              </div>
+
+              <!-- E-mail -->
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="email@exemplo.com">
+              </div>
+
+              <!-- SIAPE (somente números) -->
+              <div class="form-group">
+                <label for="siape">SIAPE</label>
+                <input
+                  type="text"
+                  id="siape"
+                  placeholder="Somente números"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  oninput="this.value=this.value.replace(/\D/g,'')"
+                >
+              </div>
+
+              <!-- Telefone (somente números, linha inteira opcional) -->
+              <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input
+                  type="text"
+                  id="telefone"
+                  placeholder="DDD + número"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  autocomplete="tel"
+                  oninput="this.value=this.value.replace(/\D/g,'')"
+                >
+              </div>
+
+            <div class="form-actions">
+              <button type="reset" class="btn ghost">Limpar</button>
+              <button type="submit" class="btn primary">Salvar Usuário</button>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+    </main>
   </div>
 
-  <script>
-    // Toggle sidebar
-    function toggleSidebar() {
-      const sidebar = document.querySelector(".sidebar");
-      const main = document.querySelector(".main");
-      sidebar.classList.toggle("collapsed");
-      main.classList.toggle("collapsed");
-
-      // Ao fechar sidebar, escondemos submenus e barra de busca
-      if(sidebar.classList.contains("collapsed")){
-        document.querySelectorAll(".submenu").forEach(sub => sub.style.display = "none");
-        document.getElementById("search-input").style.display = "none";
-      }
-    }
-
-    // Dropdown menus
-    document.querySelectorAll(".dropdown-btn").forEach(btn => {
-      btn.addEventListener("click", function (e) {
-        e.preventDefault();
-        const sidebar = document.querySelector(".sidebar");
-        // Só abre submenu se sidebar estiver aberta
-        if(!sidebar.classList.contains("collapsed")){
-          const submenu = this.nextElementSibling;
-          submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-        }
-      });
-    });
-
-    // Mostrar barra de busca ao clicar (somente se sidebar aberta)
-    document.getElementById("search-btn").addEventListener("click", function(e) {
-      e.preventDefault();
-      const sidebar = document.querySelector(".sidebar");
-      const input = document.getElementById("search-input");
-      if(!sidebar.classList.contains("collapsed")){
-        input.style.display = input.style.display === "block" ? "none" : "block";
-        if(input.style.display === "block") input.focus();
-      }
-    });
-  </script>
+  <!-- O JS está dentro da pasta /cadastro -->
+  <script src="./_main.js"></script>
 </body>
 </html>
