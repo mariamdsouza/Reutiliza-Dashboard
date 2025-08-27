@@ -3,5 +3,6 @@
 @import url('./base/_base.css');
 @import url('./components/_header.css');
 @import url('./components/_sidebar.css');
+@import url('./components/_form.css');
 @import url('./components/_utils.css');
 @import url('./pages/_dashboard.css');
