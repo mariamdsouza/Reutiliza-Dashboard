@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gráfico de Solicitações x Entregas</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      background: #f5f7fa;
+      font-family: Arial, sans-serif;
+    }
+    .chart-container {
+      width: 85%;
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="chart-container">
+    <canvas id="demandaChart"></canvas>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('demandaChart').getContext('2d');
+
+    const demandaChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [
+          'Ago','Set','Out','Nov','Dez','Jan',
+          'Fev','Mar','Abr','Mai','Jun','Jul'
+        ],
+        datasets: [
+          {
+            label: 'Solicitações',
+            data: [120, 150, 180, 200, 250, 300, 280, 320, 340, 360, 370, 400],
+            borderColor: 'rgba(220, 20, 60, 1)',
+            borderWidth: 3,
+            pointBackgroundColor: 'rgba(220, 20, 60, 1)',
+            pointRadius: 5,
+            pointHoverRadius: 8,
+            tension: 0.4
+          },
+          {
+            label: 'Entregas',
+            data: [100, 140, 160, 180, 220, 270, 260, 290, 310, 330, 340, 370],
+            borderColor: 'rgba(30, 60, 150, 1)',
+            borderWidth: 3,
+            pointBackgroundColor: 'rgba(30, 60, 150, 1)',
+            pointRadius: 5,
+            pointHoverRadius: 8,
+            tension: 0.4
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        animation: {
+          duration: 1200,
+          easing: 'easeInOutQuart'
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'Solicitações x Entregas por Mês (2024-2025)',
+            font: {
+              size: 22,
+              weight: 'bold'
+            },
+            color: '#333'
+          },
+          legend: {
+            position: 'bottom',
+            labels: {
+              font: { size: 14 }
+            }
+          },
+          tooltip: {
+            backgroundColor: '#222',
+            titleColor: '#fff',
+            bodyColor: '#fff',
+            padding: 12,
+            callbacks: {
+              label: (context) => `${context.dataset.label}: ${context.formattedValue} unidades`
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: { color: 'rgba(200,200,200,0.3)' },
+            title: {
+              display: true,
+              text: 'Quantidade'
+            }
+          },
+          x: {
+            grid: { display: false },
+            title: {
+              display: true,
+              text: 'Meses'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
