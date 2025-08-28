@@ -1,0 +1,15 @@
+.content-area {
+    flex-grow: 1;
+    padding: 25px;
+}
+
+.content-area h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--text-color-dark);
+}
+
+.content-area p {
+    color: var(--text-color-medium);
+    line-height: 1.6;
+}
